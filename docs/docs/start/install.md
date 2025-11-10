@@ -16,15 +16,15 @@ Follow the instructions below to install the required system packages, python mo
     The following instructions assume you are reasonably adept at Linux system administration.
 
 !!! warning "OS Specific Requirements"
-  These instructions have been tested with the following distros and versions:
-    
-    * Ubuntu 25.10
-    * Debian FIXME
+    These instructions have been tested with the following distros and versions:
 
-The instructions may need to be tweaked for other distros and versions.
+      * Ubuntu 25.10
+      * Debian FIXME
+
+    The instructions may need to be tweaked for other distros and versions.
 
 !!! tip "Root and non-root users"
-    Commands which should be run as "root" (the privileged super user), are prefixed with `sudo`.  Commands _not_ prefixed with `sudo` should be run as the non-privileged user (see the `inventree` user created below).  In practice you might use ssh to get access to the server as root, then run `su -l inventree` to switch to the non-privileged user.  Or you might have two terminal windows open, one for root, and and one for the non-privileged user.  The `sudo` prefix is your cue as to which user to use.
+    Commands which should be run as "root" (the privileged super user), are prefixed with `sudo`.  Commands _not_ prefixed with `sudo` should be run as the non-privileged user (see the `inventree` user created below).  In practice you might use ssh to get access to the server as root, then run `su -l inventree` to switch to the non-privileged user.  Or you might have two terminal windows open, one for root, and and one for the non-privileged user.  The `sudo` prefix in these instructions is your cue as to which user to use.
 
 ### Install System Packages
 Install required system packages (as `root`, the super user):
