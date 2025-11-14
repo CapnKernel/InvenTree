@@ -8,7 +8,7 @@ import random
 import shutil
 import string
 from pathlib import Path
-from typing import Optional, Union
+from typing import Optional
 
 logger = logging.getLogger('inventree')
 CONFIG_DATA = None
@@ -177,7 +177,7 @@ def get_config_file(create=True) -> Path:
     return cfg_filename
 
 
-def load_config_data(set_cache: bool = False) -> Union[map, None]:
+def load_config_data(set_cache: bool = False) -> map | None:
     """Load configuration data from the config file.
 
     Arguments:
@@ -222,6 +222,11 @@ def do_typecast(value, type, var_name=None):
     # Valid JSON string is required
     elif type is dict:
         value = to_dict(value)
+
+    # Special handling for boolean typecasting
+    elif type is bool:
+        val = is_true(value)
+        return val
 
     elif type is not None:
         # Try to typecast the value
@@ -392,7 +397,7 @@ def get_plugin_dir():
     return get_setting('INVENTREE_PLUGIN_DIR', 'plugin_dir')
 
 
-def get_secret_key(return_path: bool = False) -> Union[str, Path]:
+def get_secret_key(return_path: bool = False) -> str | Path:
     """Return the secret key value which will be used by django.
 
     Following options are tested, in descending order of preference:
@@ -436,7 +441,7 @@ def get_secret_key(return_path: bool = False) -> Union[str, Path]:
     return secret_key_file.read_text().strip()
 
 
-def get_oidc_private_key(return_path: bool = False) -> Union[str, Path]:
+def get_oidc_private_key(return_path: bool = False) -> str | Path:
     """Return the private key for OIDC authentication.
 
     Following options are tested, in descending order of preference:
